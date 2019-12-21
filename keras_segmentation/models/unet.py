@@ -1,9 +1,13 @@
 from keras.models import *
 from keras.layers import *
 
+from keras import applications
+
 from .config import IMAGE_ORDERING
 from .model_utils import get_segmentation_model
-from .vgg16 import get_vgg_encoder
+from .vgg16 import get_vgg16_encoder
+from .vgg19 import get_vgg19_encoder
+from .efficientnet import get_efficientnetb7_encoder
 from .mobilenet import get_mobilenet_encoder
 from .basic_models import vanilla_encoder
 from .resnet50 import get_resnet50_encoder
@@ -116,13 +120,26 @@ def unet(n_classes, input_height=416, input_width=608, encoder_level=3):
     return model
 
 
-def vgg_unet(n_classes, input_height=416, input_width=608, encoder_level=3):
+def vgg16_unet(n_classes, input_height=416, input_width=608, encoder_level=3):
 
-    model = _unet(n_classes, get_vgg_encoder,
+    model = _unet(n_classes, get_vgg16_encoder,
                   input_height=input_height, input_width=input_width)
-    model.model_name = "vgg_unet"
+    model.model_name = "vgg16_unet"
     return model
 
+def vgg19_unet(n_classes, input_height=416, input_width=608, encoder_level=3):
+    
+    model = _unet(n_classes, get_vgg19_encoder,
+                  input_height=input_height, input_width=input_width)
+    model.model_name = "vgg19_unet"
+    return model
+
+def efficientnet_unet(n_classes, input_height=416, input_width=608, encoder_level=3):
+
+    model = _unet(n_classes, get_efficientnetb7_encoder,
+                  input_height=input_height, input_width=input_width)
+    model.model_name = "efficientnet_unet"
+    return model
 
 def resnet50_unet(n_classes, input_height=416, input_width=608,
                   encoder_level=3):
@@ -146,5 +163,5 @@ if __name__ == '__main__':
     m = unet_mini(101)
     m = _unet(101, vanilla_encoder)
     # m = _unet( 101 , get_mobilenet_encoder ,True , 224 , 224  )
-    m = _unet(101, get_vgg_encoder)
+    m = _unet(101, get_vgg16_encoder)
     m = _unet(101, get_resnet50_encoder)

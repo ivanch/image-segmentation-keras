@@ -31,7 +31,9 @@ model_from_name["pspnet_101"] = pspnet.pspnet_101
 
 model_from_name["unet_mini"] = unet.unet_mini
 model_from_name["unet"] = unet.unet
-model_from_name["vgg_unet"] = unet.vgg_unet
+model_from_name["vgg16_unet"] = unet.vgg16_unet
+model_from_name["vgg19_unet"] = unet.vgg19_unet
+model_from_name["efficientnet_unet"] = unet.efficientnet_unet
 model_from_name["resnet50_unet"] = unet.resnet50_unet
 model_from_name["mobilenet_unet"] = unet.mobilenet_unet
 

@@ -6,7 +6,7 @@ import keras.backend as K
 
 from .config import IMAGE_ORDERING
 from .model_utils import get_segmentation_model, resize_image
-from .vgg16 import get_vgg_encoder
+from .vgg16 import get_vgg16_encoder
 from .mobilenet import get_mobilenet_encoder
 from .basic_models import vanilla_encoder
 from .resnet50 import get_resnet50_encoder
@@ -85,7 +85,7 @@ def pspnet(n_classes,  input_height=384, input_width=576):
 
 def vgg_pspnet(n_classes,  input_height=384, input_width=576):
 
-    model = _pspnet(n_classes, get_vgg_encoder,
+    model = _pspnet(n_classes, get_vgg16_encoder,
                     input_height=input_height, input_width=input_width)
     model.model_name = "vgg_pspnet"
     return model
@@ -137,5 +137,5 @@ if __name__ == '__main__':
 
     m = _pspnet(101, vanilla_encoder)
     # m = _pspnet( 101 , get_mobilenet_encoder ,True , 224 , 224  )
-    m = _pspnet(101, get_vgg_encoder)
+    m = _pspnet(101, get_vgg16_encoder)
     m = _pspnet(101, get_resnet50_encoder)

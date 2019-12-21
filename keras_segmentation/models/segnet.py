@@ -5,7 +5,7 @@ from keras.layers import *
 
 from .config import IMAGE_ORDERING
 from .model_utils import get_segmentation_model
-from .vgg16 import get_vgg_encoder
+from .vgg16 import get_vgg16_encoder
 from .mobilenet import get_mobilenet_encoder
 from .basic_models import vanilla_encoder
 from .resnet50 import get_resnet50_encoder
@@ -66,7 +66,7 @@ def segnet(n_classes, input_height=416, input_width=608, encoder_level=3):
 
 def vgg_segnet(n_classes, input_height=416, input_width=608, encoder_level=3):
 
-    model = _segnet(n_classes, get_vgg_encoder,  input_height=input_height,
+    model = _segnet(n_classes, get_vgg16_encoder,  input_height=input_height,
                     input_width=input_width, encoder_level=encoder_level)
     model.model_name = "vgg_segnet"
     return model

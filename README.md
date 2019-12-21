@@ -47,7 +47,9 @@ Following models are supported:
 | resnet50_pspnet  | Resnet-50         | PSPNet             |
 | unet_mini        | Vanilla Mini CNN  | U-Net              |
 | unet             | Vanilla CNN       | U-Net              |
-| vgg_unet         | VGG 16            | U-Net              |
+| vgg16_unet       | VGG 16            | U-Net              |
+| vgg19_unet       | VGG 19            | U-Net              |
+| efficientnet_unet| EfficientNet      | U-Net              |
 | resnet50_unet    | Resnet-50         | U-Net              |
 | mobilenet_unet   | MobileNet         | U-Net              |
 | segnet           | Vanilla CNN       | Segnet             |
@@ -162,9 +164,9 @@ You will get a folder named dataset1/
 You can import keras_segmentation in  your python script and use the API
 
 ```python
-from keras_segmentation.models.unet import vgg_unet
+from keras_segmentation.models.unet import vgg16_unet
 
-model = vgg_unet(n_classes=51 ,  input_height=416, input_width=608  )
+model = vgg16_unet(n_classes=51 ,  input_height=416, input_width=608  )
 
 model.train(
     train_images =  "dataset1/images_prepped_train/",
@@ -224,7 +226,7 @@ python -m keras_segmentation train \
  --n_classes=50 \
  --input_height=320 \
  --input_width=640 \
- --model_name="vgg_unet"
+ --model_name="vgg16_unet"
 ```
 
 Choose model_name from the table above

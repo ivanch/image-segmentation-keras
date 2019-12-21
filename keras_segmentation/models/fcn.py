@@ -3,7 +3,7 @@ from keras.layers import *
 
 from .config import IMAGE_ORDERING
 from .model_utils import get_segmentation_model
-from .vgg16 import get_vgg_encoder
+from .vgg16 import get_vgg16_encoder
 from .mobilenet import get_mobilenet_encoder
 from .basic_models import vanilla_encoder
 from .resnet50 import get_resnet50_encoder
@@ -120,14 +120,14 @@ def fcn_32(n_classes, encoder=vanilla_encoder, input_height=416,
 
 
 def fcn_8_vgg(n_classes,  input_height=416, input_width=608):
-    model = fcn_8(n_classes, get_vgg_encoder,
+    model = fcn_8(n_classes, get_vgg16_encoder,
                   input_height=input_height, input_width=input_width)
     model.model_name = "fcn_8_vgg"
     return model
 
 
 def fcn_32_vgg(n_classes,  input_height=416, input_width=608):
-    model = fcn_32(n_classes, get_vgg_encoder,
+    model = fcn_32(n_classes, get_vgg16_encoder,
                    input_height=input_height, input_width=input_width)
     model.model_name = "fcn_32_vgg"
     return model
