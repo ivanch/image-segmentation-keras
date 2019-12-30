@@ -39,6 +39,7 @@ model_from_name["mobilenet_unet"] = unet.mobilenet_unet
 
 
 model_from_name["segnet"] = segnet.segnet
-model_from_name["vgg_segnet"] = segnet.vgg_segnet
+model_from_name["vgg16_segnet"] = segnet.vgg16_segnet
+model_from_name["vgg19_segnet"] = segnet.vgg19_segnet
 model_from_name["resnet50_segnet"] = segnet.resnet50_segnet
 model_from_name["mobilenet_segnet"] = segnet.mobilenet_segnet

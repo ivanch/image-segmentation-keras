@@ -1,15 +1,3 @@
-"""EfficientNet models for Keras.
-
-# Reference paper
-
-- [EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks]
-  (https://arxiv.org/abs/1905.11946) (ICML 2019)
-
-# Reference implementation
-
-- [TensorFlow]
-  (https://github.com/tensorflow/tpu/tree/master/models/official/efficientnet)
-"""
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -469,15 +457,6 @@ def get_efficientnetb7_encoder(include_top=True,
 
 
 def preprocess_input(x, data_format=None, **kwargs):
-    """Preprocesses a numpy array encoding a batch of images.
-
-    # Arguments
-        x: a 3D or 4D numpy array consists of RGB values within [0, 255].
-        data_format: data format of the image tensor.
-
-    # Returns
-        Preprocessed array.
-    """
     return imagenet_utils.preprocess_input(x, data_format,
                                            mode='torch', **kwargs)
 

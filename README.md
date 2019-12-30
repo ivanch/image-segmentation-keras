@@ -53,7 +53,8 @@ Following models are supported:
 | resnet50_unet    | Resnet-50         | U-Net              |
 | mobilenet_unet   | MobileNet         | U-Net              |
 | segnet           | Vanilla CNN       | Segnet             |
-| vgg_segnet       | VGG 16            | Segnet             |
+| vgg16_segnet     | VGG 16            | Segnet             |
+| vgg19_segnet     | VGG 19            | Segnet             |
 | resnet50_segnet  | Resnet-50         | Segnet             |
 | mobilenet_segnet | MobileNet         | Segnet             |
 
